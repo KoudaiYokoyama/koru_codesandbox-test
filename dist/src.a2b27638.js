@@ -119,29 +119,29 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"src/index.js":[function(require,module,exports) {
 /**
- * アロー関数
+ * 分割代入
  */
-// 従来の関数
-// function func1(str) {
-//   console.log(`文字列は${str}です。`);
-//   return str;
-// }
-
-// const func1 = function (str) {
-//   console.log(`文字列は${str}です。`);
-//   return str;
+// const myProfile = {
+//   name: "nyanki",
+//   age: 21,
 // };
-// func1("yayayaya");
 
-//アロー関数
-var func2 = function func2(str) {
-  return str;
-};
-console.log("\u6587\u5B57\u5217\u306F".concat(func2("jajajaja"), "\u3067\u3059\u3002"));
-var func3 = function func3(val1, val2) {
-  return val1 + val2;
-};
-console.log("20\uFF0B30\uFF1D".concat(func3(20, 30)));
+// const message1 = `名前は${myProfile.name}です。年齢は${myProfile.age}歳です。`;
+// console.log(message1);
+
+// // 変数名は属性名じゃないといけない
+// const { name, age } = myProfile;
+
+// const message2 = `名前は${name}です。年齢は${age}歳です。`;
+// console.log(message2);
+
+var myProfile = ["nyamaru", 35];
+var message3 = "\u540D\u524D\u306F".concat(myProfile[0], "\u3067\u3059\u3002\u5E74\u9F62\u306F").concat(myProfile[1], "\u6B73\u3067\u3059\u3002");
+console.log(message3);
+var val1 = myProfile[0],
+  val2 = myProfile[1];
+var message4 = "\u540D\u524D\u306F".concat(val1, "\u3067\u3059\u3002\u5E74\u9F62\u306F").concat(val2, "\u6B73\u3067\u3059\u3002");
+console.log(message4);
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
