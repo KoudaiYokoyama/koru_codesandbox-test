@@ -118,30 +118,50 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"src/index.js":[function(require,module,exports) {
+var _console;
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && iter[Symbol.iterator] != null || iter["@@iterator"] != null) return Array.from(iter); }
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
 /**
- * アロー関数
+ * デフォルト値、引数など
  */
-// 従来の関数
-// function func1(str) {
-//   console.log(`文字列は${str}です。`);
-//   return str;
-// }
-
-// const func1 = function (str) {
-//   console.log(`文字列は${str}です。`);
-//   return str;
-// };
-// func1("yayayaya");
-
-//アロー関数
-var func2 = function func2(str) {
-  return str;
+var sayHello = function sayHello() {
+  var name = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : "default";
+  return console.log("Hello, ".concat(name));
 };
-console.log("\u6587\u5B57\u5217\u306F".concat(func2("jajajaja"), "\u3067\u3059\u3002"));
-var func3 = function func3(val1, val2) {
-  return val1 + val2;
-};
-console.log("20\uFF0B30\uFF1D".concat(func3(20, 30)));
+sayHello();
+
+/**
+ * スプレッド構文 ...
+ */
+// // 配列の展開
+// const arr1 = [1, 2, 3];
+// console.log(arr1); // [1, 2]
+// console.log(...arr1); // 1 2
+
+// const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]); // 3
+// sumFunc(...arr1); // 3
+
+// まとめる
+var arr2 = [1, 2, 3, 4, 5];
+var num1 = arr2[0],
+  num2 = arr2[1],
+  arr3 = arr2.slice(2); //分割代入しなかった値がarr3に代入される
+console.log(num1);
+console.log(num2);
+(_console = console).log.apply(_console, _toConsumableArray(arr3));
+
+// 配列のコピー、結合
+var arr4 = [10, 20];
+var arr5 = [30, 40];
+var arr6 = [].concat(arr4); //arr4と全く同じ配列
+console.log(arr6); //[10, 20]
+var arr7 = [].concat(arr4, arr5);
+console.log(arr7); //[10, 20, 30, 40]
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
