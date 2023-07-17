@@ -1,24 +1,32 @@
 /**
- * 分割代入
+ * デフォルト値、引数など
  */
-// const myProfile = {
-//   name: "nyanki",
-//   age: 21,
-// };
+const sayHello = (name = "default") => console.log(`Hello, ${name}`);
+sayHello();
 
-// const message1 = `名前は${myProfile.name}です。年齢は${myProfile.age}歳です。`;
-// console.log(message1);
+/**
+ * スプレッド構文 ...
+ */
+// // 配列の展開
+// const arr1 = [1, 2, 3];
+// console.log(arr1); // [1, 2]
+// console.log(...arr1); // 1 2
 
-// // 変数名は属性名じゃないといけない
-// const { name, age } = myProfile;
+// const sumFunc = (num1, num2) => console.log(num1 + num2);
+// sumFunc(arr1[0], arr1[1]); // 3
+// sumFunc(...arr1); // 3
 
-// const message2 = `名前は${name}です。年齢は${age}歳です。`;
-// console.log(message2);
+// まとめる
+const arr2 = [1, 2, 3, 4, 5];
+const [num1, num2, ...arr3] = arr2; //分割代入しなかった値がarr3に代入される
+console.log(num1);
+console.log(num2);
+console.log(...arr3);
 
-const myProfile = ["nyamaru", 35];
-const message3 = `名前は${myProfile[0]}です。年齢は${myProfile[1]}歳です。`;
-console.log(message3);
-
-const [val1, val2] = myProfile;
-const message4 = `名前は${val1}です。年齢は${val2}歳です。`;
-console.log(message4);
+// 配列のコピー、結合
+const arr4 = [10, 20];
+const arr5 = [30, 40];
+const arr6 = [...arr4]; //arr4と全く同じ配列
+console.log(arr6); //[10, 20]
+const arr7 = [...arr4, ...arr5];
+console.log(arr7); //[10, 20, 30, 40]
