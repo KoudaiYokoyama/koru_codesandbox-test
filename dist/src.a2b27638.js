@@ -119,55 +119,29 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   return newRequire;
 })({"src/index.js":[function(require,module,exports) {
 /**
- * const, let等の変数宣言
+ * アロー関数
  */
+// 従来の関数
+// function func1(str) {
+//   console.log(`文字列は${str}です。`);
+//   return str;
+// }
 
-// var val1 = "var変数";
-// console.log(val1);
-
-// let val2 = "let変数";
-// console.log(val2);
-
-// // letは上書きが可能
-// val2 = "let変数を上書き";
-// console.log(val2);
-// // letは上書きが不可能
-// // let val2 = "let変数を再宣言";
-
-// const val3 = "const変数";
-// console.log(val3);
-// // constは上書き・再宣言不可
-// // val3 = "const変数を上書き";
-// // const val3 = "const変数を再宣言";
-
-// //オブジェクトであれば、constであっても変更可能
-// const val4 = {
-//   name: "jammiloquai",
-//   age: 28,
+// const func1 = function (str) {
+//   console.log(`文字列は${str}です。`);
+//   return str;
 // };
-// val4.name = "kamira";
-// val4.address = "Hiroshima";
-// console.log(val4);
+// func1("yayayaya");
 
-// //配列であっても、変更可能
-// const val5 = ["dog", "cat"];
-// val5[0] = "bird";
-// val5.push("monkey");
-// console.log(val5);
-
-/**
- * テンプレート文字列
- */
-// const name = "Kiki vivi lily";
-// const age = 31;
-// // 「私の名前はkikkivivililyです。28歳です。」
-// // 従来の方法
-// const message1 = "私の名前は" + name + "です。" + age + "歳です。";
-// console.log(message1);
-
-// //テンプレート文字列を用いた方法
-// const message2 = `私の名前は${name}です。${age}歳です。`;
-// console.log(message2);
+//アロー関数
+var func2 = function func2(str) {
+  return str;
+};
+console.log("\u6587\u5B57\u5217\u306F".concat(func2("jajajaja"), "\u3067\u3059\u3002"));
+var func3 = function func3(val1, val2) {
+  return val1 + val2;
+};
+console.log("20\uFF0B30\uFF1D".concat(func3(20, 30)));
 },{}],"node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
